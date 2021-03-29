@@ -1,0 +1,7 @@
+1. Ensure you can use Git through your CMD. 
+	https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+	- Note: You may also need to enable the Open SSH Agent service on Windows: https://superuser.com/questions/1327633/how-to-maintain-ssh-agent-login-session-with-windows-10s-new-openssh-and-powers
+2. Modify push.cmd
+	- Add "COPY /Y .\*.sav Saved\SaveGames\YOUR_ID" for each player which will be using the cloud save
+3. Run "run.bat"
+	- This will pull the state of the repository, launch Satisfactory through steam, and create a watcher on the SaveGames/ folder.  Anytime a save occurs while playing the saved file will be copied to all save directories then pushed to the repository.
