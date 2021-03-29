@@ -7,7 +7,11 @@
 	- Note: You may also need to enable the Open SSH Agent service on Windows: https://superuser.com/questions/1327633/how-to-maintain-ssh-agent-login-session-with-windows-10s-new-openssh-and-powers
 5. Add your save folder to the repo. FactoryGame/Saved/SaveGames/YOUR_ID
 6. Modify push.cmd
-	- Add "COPY /Y .\*.sav Saved\SaveGames\YOUR_ID" for each player which will be using the cloud save.
+	- Within the file are indicators of additions you need to make due to the personalized IDs used in Satisfactory's save folder
+		- Add a variable for each player's save game location, add a copy for each regular save, add an IF...COPY if you're using the Experimental branch
+			- set player1Saves=Saved\SaveGames\YOUR_ID
+			- COPY /Y .*.sav Saved\SaveGames\YOUR_ID
+			- if not x%filename:_BAK=%==x%filename% COPY /Y %allsaves% %player1Saves%
 5. Run "Satisfactory.bat"
 	- This will do the following:
 		Pull the state of the repository
