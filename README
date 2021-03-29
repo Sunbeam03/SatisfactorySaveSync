@@ -1,7 +1,18 @@
-1. Ensure you can use Git through your CMD. 
+1. Fork this repository for your own saves.
+2. Backup your USER/AppData/FactoryGame/ folder
+3. Clone your repo to your USER/AppData/FactoryGame/ folder
+	- This is required so that Satisfactory will automatically put saves into the Repo for you
+4. Ensure you can use Git through your CMD so that the scripts will work.
 	https://docs.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 	- Note: You may also need to enable the Open SSH Agent service on Windows: https://superuser.com/questions/1327633/how-to-maintain-ssh-agent-login-session-with-windows-10s-new-openssh-and-powers
-2. Modify push.cmd
-	- Add "COPY /Y .\*.sav Saved\SaveGames\YOUR_ID" for each player which will be using the cloud save
-3. Run "run.bat"
-	- This will pull the state of the repository, launch Satisfactory through steam, and create a watcher on the SaveGames/ folder.  Anytime a save occurs while playing the saved file will be copied to all save directories then pushed to the repository.
+5. Add your save folder to the repo. FactoryGame/Saved/SaveGames/YOUR_ID
+6. Modify push.cmd
+	- Add "COPY /Y .\*.sav Saved\SaveGames\YOUR_ID" for each player which will be using the cloud save.
+5. Run "Satisfactory.bat"
+	- This will do the following:
+		Pull the state of the repository
+		Find your Satisfactory folder and FactoryGame.exe and store the path for future runs
+		Launch Satisfactory through Steam
+		Create a watcher on the SaveGames/ folder
+			Anytime a save occurs while playing the saved file will be copied to all save directories then pushed to the repository.
+			NOTE: The watcher does not close when you close the game and you will need to manually close the CMD window.
